@@ -10,7 +10,9 @@ namespace AlgorithmsExamples
     {
         static void Main(string[] args)
         {
-            Console.Write("\nProgram for sorting a numeric array using Quick Sorting");
+            #region QuickSort
+
+            Console.Write("\n************ QuickSort ************");
             Console.Write("\n\nEnter number of elements: ");
 
             int totalElements = Convert.ToInt32(Console.ReadLine());
@@ -39,6 +41,8 @@ namespace AlgorithmsExamples
             for (int i = 0; i < totalElements; i++)
                 Console.WriteLine(numbers[i]);
 
+            #endregion
+            
             Console.ReadLine();
         }
     }
