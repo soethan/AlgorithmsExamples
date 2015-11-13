@@ -15,8 +15,13 @@ namespace AlgorithmsExamples
                 case AlgorithmType.QuickSort:
                     return new QuickSort();
                 case AlgorithmType.MergeSort:
-                default:
                     return new MergeSort();
+                case AlgorithmType.InsertionSort:
+                    return new InsertionSort();
+                case AlgorithmType.BubbleSort:
+                    return new BubbleSort();
+                default:
+                    throw new Exception("Invalid AlgorithmType");
             }
         }
     }
