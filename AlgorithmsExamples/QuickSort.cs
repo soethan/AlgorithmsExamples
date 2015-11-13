@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AlgorithmsExamples
 {
-    public class QuickSort
+    public class QuickSort : ISort
     {
         //6  5  9  12  3  
         //6  5  3  12  9  (pivot index is 3)
@@ -47,6 +47,11 @@ namespace AlgorithmsExamples
                 if (pivotIndex + 1 < right)
                     Sort(arr, pivotIndex + 1, right);
             }
+        }
+
+        public void Sort(int[] numbers)
+        {
+            Sort(numbers, 0, numbers.Length - 1);
         }
     }
 }

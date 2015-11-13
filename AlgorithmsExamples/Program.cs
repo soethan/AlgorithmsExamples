@@ -10,9 +10,9 @@ namespace AlgorithmsExamples
     {
         static void Main(string[] args)
         {
-            #region QuickSort
+            #region Sorting
 
-            Console.Write("\n************ QuickSort ************");
+            Console.Write("\n************ Sorting ************");
             Console.Write("\n\nEnter number of elements: ");
 
             int totalElements = Convert.ToInt32(Console.ReadLine());
@@ -24,7 +24,7 @@ namespace AlgorithmsExamples
                 numbers[i] = Convert.ToInt32(Console.ReadLine());
             }
 
-            Console.Write("Input int array  : ");
+            Console.Write("Before Sorting: ");
             Console.Write("\n");
 
             for (int k = 0; k < totalElements; k++)
@@ -33,10 +33,11 @@ namespace AlgorithmsExamples
                 Console.Write("\n");
             }
 
-            Console.WriteLine("QuickSort By Recursive Method");
+            Console.WriteLine("After Sorting:");
 
-            var quickSort = new QuickSort();
-            quickSort.Sort(numbers, 0, totalElements - 1);
+            //var sortAlgorithm = SortAlgorithmFactory.GetSortingAlgorithm(AlgorithmType.QuickSort);
+            var sortAlgorithm = SortAlgorithmFactory.GetSortingAlgorithm(AlgorithmType.MergeSort);
+            sortAlgorithm.Sort(numbers);
 
             for (int i = 0; i < totalElements; i++)
                 Console.WriteLine(numbers[i]);
