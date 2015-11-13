@@ -8,46 +8,49 @@ namespace AlgorithmsExamples
 {
     public class MergeSort : ISort
     {
-        public void MainMerge(int[] numbers, int left, int mid, int right)
+        public void Merge(int[] array, int left, int mid, int right)
         {
-            int[] temp = new int[25];
-            int i, eol, num, pos;
+            int[] temp = new int[array.Length];
+            int tempArrayIndex = left;
+            int i = left;
+            int j = mid;
 
-            eol = (mid - 1);
-            pos = left;
-            num = (right - left + 1);
-
-            while ((left <= eol) && (mid <= right))
+            while (i < mid && j <= right)
             {
-                if (numbers[left] <= numbers[mid])
-                    temp[pos++] = numbers[left++];
+                if (array[i] <= array[j])
+                {
+                    temp[tempArrayIndex++] = array[i++];
+                }
                 else
-                    temp[pos++] = numbers[mid++];
+                {
+                    temp[tempArrayIndex++] = array[j++];
+                }
             }
 
-            while (left <= eol)
-                temp[pos++] = numbers[left++];
-
-            while (mid <= right)
-                temp[pos++] = numbers[mid++];
-
-            for (i = 0; i < num; i++)
+            while (i < mid)
             {
-                numbers[right] = temp[right];
-                right--;
+                temp[tempArrayIndex++] = array[i++];
             }
+
+            while (j <= right)
+            {
+                temp[tempArrayIndex++] = array[j++];
+            }
+
+            for (int k = left; k <= right; k++)
+            {
+                array[k] = temp[k];
+            }   
         }
 
         public void Sort(int[] numbers, int left, int right)
         {
-            int mid;
-
             if (right > left)
             {
-                mid = (right + left) / 2;
+                int mid = (right + left) / 2;
                 Sort(numbers, left, mid);
-                Sort(numbers, (mid + 1), right);
-                MainMerge(numbers, left, (mid + 1), right);
+                Sort(numbers, mid + 1, right);
+                Merge(numbers, left, mid + 1, right);
             }
         }
 
