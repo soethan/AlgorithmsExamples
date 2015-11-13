@@ -36,7 +36,8 @@ namespace AlgorithmsExamples
             Console.WriteLine("After Sorting:");
 
             //var sortAlgorithm = SortAlgorithmFactory.GetSortingAlgorithm(AlgorithmType.QuickSort);
-            var sortAlgorithm = SortAlgorithmFactory.GetSortingAlgorithm(AlgorithmType.MergeSort);
+            var sortAlgorithm = SortAlgorithmFactory.GetSortingAlgorithm(AlgorithmType.InsertionSort);
+            //var sortAlgorithm = SortAlgorithmFactory.GetSortingAlgorithm(AlgorithmType.MergeSort);
             sortAlgorithm.Sort(numbers);
 
             for (int i = 0; i < totalElements; i++)

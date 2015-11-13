@@ -9,6 +9,7 @@ namespace AlgorithmsExamples
     public enum AlgorithmType
     {
         QuickSort,
-        MergeSort
+        MergeSort,
+        InsertionSort
     }
 }
