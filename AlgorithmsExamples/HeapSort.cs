@@ -10,68 +10,44 @@ namespace AlgorithmsExamples
     {
         public void Sort(int[] numbers)
         {
-            //creates a heap
-            BuildHeap(numbers);
+            int heapSize = numbers.Length;
 
-            //sorts a heap
-            //takes the largest element @ first position and moves to end
-            //reuses the same heapify function, but in reverse, to sort the array
-            int size = numbers.Length;
-            for (int counter = size - 1; counter > 0; counter--)
+            for (int p = (heapSize - 1) / 2; p >= 0; --p)
+                MaxHeapify(ref numbers, heapSize, p);
+
+            for (int i = numbers.Length - 1; i > 0; --i)
             {
-                Swap(numbers, 0, counter);
-                HeapifyRecursive(numbers, 0, counter);
+                int temp = numbers[i];
+                numbers[i] = numbers[0];
+                numbers[0] = temp;
+
+                --heapSize;
+                MaxHeapify(ref numbers, heapSize, 0);
             }
         }
 
-        //a heap, in this case, is a binary tree
-        //the largest element is in the first position
-        //the next two positions are the 2 subelements of this node, and so on
-        //it looks at each element, then reporders them so it maintains the heap structure
-        public int[] BuildHeap(int[] arrayToSort)
+        private void MaxHeapify(ref int[] data, int heapSize, int index)
         {
-            int size = arrayToSort.Length;
-            int start = (arrayToSort.Length / 2) - 1;
+            int left = (index + 1) * 2 - 1;
+            int right = (index + 1) * 2;
+            int largest = 0;
 
-            for (int counter = start; counter >= 0; counter--)
-            {
-                HeapifyRecursive(arrayToSort, counter, size);
-            }
-            return arrayToSort;
-        }
-
-        public void HeapifyRecursive(int[] arrayToSort, int idx, int max)
-        {
-            int left = 2 * idx + 1;
-            int right = 2 * idx + 2;
-            int largest;
-            if (left < max && arrayToSort[left] > arrayToSort[idx])
-            {
+            if (left < heapSize && data[left] > data[index])
                 largest = left;
-            }
             else
-            {
-                largest = idx;
-            }
+                largest = index;
 
-            if (right < max && arrayToSort[right] > arrayToSort[largest])
-            {
+            if (right < heapSize && data[right] > data[largest])
                 largest = right;
-            }
 
-            if (largest != idx)
+            if (largest != index)
             {
-                Swap(arrayToSort, idx, largest);
-                HeapifyRecursive(arrayToSort, largest, max - 1);
-            }
-        }
+                int temp = data[index];
+                data[index] = data[largest];
+                data[largest] = temp;
 
-        private int[] Swap(int[] arrayToUse, int itemOneIndex, int itemTwoIndex)
-        {
-            int tempValueHolder = arrayToUse[itemOneIndex];
-            arrayToUse[itemOneIndex] = arrayToUse[itemTwoIndex];
-            arrayToUse[itemTwoIndex] = tempValueHolder;
-            return arrayToUse;
+                MaxHeapify(ref data, heapSize, largest);
+            }
         }
     }
 }
