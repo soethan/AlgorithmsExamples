@@ -20,6 +20,8 @@ namespace AlgorithmsExamples
                     return new InsertionSort();
                 case AlgorithmType.BubbleSort:
                     return new BubbleSort();
+                case AlgorithmType.HeapSort:
+                    return new HeapSort();
                 default:
                     throw new Exception("Invalid AlgorithmType");
             }

@@ -11,6 +11,7 @@ namespace AlgorithmsExamples
         QuickSort,
         MergeSort,
         BubbleSort,
-        InsertionSort
+        InsertionSort,
+        HeapSort
     }
 }
