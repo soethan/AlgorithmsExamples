@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace AlgorithmsExamples
 {
-    /*
-    * A representation of an edge from a source vertex to a target vertex
-    * with a weight(cost)
-    * */
+    /// <summary>
+    /// A representation of an edge from a source vertex to a target vertex
+    /// with a weight(cost)
+    /// </summary>
     public class DirectedEdge
     {
         private readonly int _sourceVertex;
