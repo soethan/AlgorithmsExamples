@@ -13,9 +13,9 @@ namespace AlgorithmsExamples
         {
             int temp = 0;
 
-            for (int i = 0; i < numbers.Length; i++)
+            for (int i = 1; i <= numbers.Length; i++)
             {
-                for (int j = 0; j < numbers.Length - i - 1; j++)
+                for (int j = 0; j < numbers.Length - i; j++)
                 {
                     if (numbers[j] > numbers[j + 1])
                     {
