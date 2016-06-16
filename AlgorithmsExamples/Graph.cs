@@ -78,10 +78,10 @@ namespace AlgorithmsExamples
             return _totalEdges;
         }
 
-        //Add an edge at the start of the linked list and increase the edge count
+        //Add an edge at the end of the linked list and increase the edge count
         public void AddEdge(DirectedEdge e)
         {
-            _adjacencyList[e.From()].AddFirst(e);
+            _adjacencyList[e.From()].AddLast(e);
             _totalEdges++;
         }
 
@@ -96,7 +96,7 @@ namespace AlgorithmsExamples
             for (int i = 0; i < _totalVertices; i++)
             {
                 foreach (DirectedEdge e in _adjacencyList[i])
-                    allEdges.AddFirst(e);
+                    allEdges.AddLast(e);
             }
             return allEdges;
         }

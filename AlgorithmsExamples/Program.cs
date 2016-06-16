@@ -46,7 +46,23 @@ namespace AlgorithmsExamples
                 Console.WriteLine(numbers[i]);
 
             #endregion
-            
+
+            #region Graph
+
+            var graph = new EdgeWeightedDirectedGraph(5);
+            graph.AddEdge(new DirectedEdge(0, 1, 10));
+            graph.AddEdge(new DirectedEdge(0, 3, 15));
+            graph.AddEdge(new DirectedEdge(1, 2, 5));
+            graph.AddEdge(new DirectedEdge(1, 4, 25));
+
+            var allEdges = graph.GetAllEdges();
+            foreach (var edge in allEdges)
+            {
+                Console.WriteLine(edge.ToString());
+            }
+
+            #endregion
+
             Console.ReadLine();
         }
     }
