@@ -12,54 +12,47 @@ namespace AlgorithmsExamples
     * */
     public class DirectedEdge
     {
-        private readonly int _source;//The source vertex
-        private readonly int _target;//The target vertex
-        private readonly double _weight;//The weight to go from _v to _w
+        private readonly int _sourceVertex;
+        private readonly int _targetVertex;
+        private readonly double _weight;
 
-        //Create a directed edge from v to w with weight 'weight'
-        public DirectedEdge(int v, int w, double weight)
+        public DirectedEdge(int sourceVertex, int targetVertex, double weight)
         {
-            this._source = v;
-            this._target = w;
+            this._sourceVertex = sourceVertex;
+            this._targetVertex = targetVertex;
             this._weight = weight;
         }
 
-        //Return the weight
         public double Weight()
         {
             return _weight;
         }
 
-        //Return the source vertex
         public int From()
         {
-            return _source;
+            return _sourceVertex;
         }
 
-        //Return the target vertex
         public int To()
         {
-            return _target;
+            return _targetVertex;
         }
 
-        //Return a string representation of the edge
         public override string ToString()
         {
-            return String.Format("{0:d}->{1:d} {2:f}", _source, _target, _weight);
+            return String.Format("{0:d}->{1:d} {2:f}", _sourceVertex, _targetVertex, _weight);
         }
     }
-    /*
-    * Implementation of an edge weighted directed graph
-    * */
+    
+    /// <summary>
+    /// Implementation of an edge weighted directed graph
+    /// </summary>
     public class EdgeWeightedDirectedGraph
     {
-        private readonly int _totalVertices; //The number of vertices
-        private int _totalEdges;//The number of edges
-        private LinkedList<DirectedEdge>[] _adjacencyList;//A linked list representation of the adjacency lists
+        private readonly int _totalVertices;
+        private int _totalEdges;
+        private LinkedList<DirectedEdge>[] _adjacencyList;
 
-        /*
-        * Create an edge weighted directed graph with V vertices
-        * */
         public EdgeWeightedDirectedGraph(int totalVertices)
         {
             this._totalVertices = totalVertices;
@@ -85,32 +78,27 @@ namespace AlgorithmsExamples
             return _totalEdges;
         }
 
-        /*
-        * Add an edge at the start of the linked list 
-        * and increase the edge count
-        * */
+        //Add an edge at the start of the linked list and increase the edge count
         public void AddEdge(DirectedEdge e)
         {
             _adjacencyList[e.From()].AddFirst(e);
             _totalEdges++;
         }
 
-        //Iterate through the vertices linked lists
         public IEnumerable<DirectedEdge> GetAdjacencyList(int v)
         {
             return _adjacencyList[v];
         }
 
-        //Iterate through all edges
-        public IEnumerable<DirectedEdge> Edges()
+        public IEnumerable<DirectedEdge> GetAllEdges()
         {
-            LinkedList<DirectedEdge> linkedlist = new LinkedList<DirectedEdge>();
-            for (int v = 0; v < _totalVertices; v++)
+            LinkedList<DirectedEdge> allEdges = new LinkedList<DirectedEdge>();
+            for (int i = 0; i < _totalVertices; i++)
             {
-                foreach (DirectedEdge e in _adjacencyList[v])
-                    linkedlist.AddFirst(e);
+                foreach (DirectedEdge e in _adjacencyList[i])
+                    allEdges.AddFirst(e);
             }
-            return linkedlist;
+            return allEdges;
         }
     }
 }
