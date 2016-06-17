@@ -49,17 +49,92 @@ namespace AlgorithmsExamples
 
             #region Graph
 
-            var graph = new EdgeWeightedDirectedGraph(5);
-            graph.AddEdge(new DirectedEdge(0, 1, 10));
-            graph.AddEdge(new DirectedEdge(0, 3, 15));
-            graph.AddEdge(new DirectedEdge(1, 2, 5));
-            graph.AddEdge(new DirectedEdge(1, 4, 25));
+            /*
+                0 - NewYork
+                1 - Chicago
+                2 - Miami
+                3 - Dallas
+                4 - Denver
+                5 - SanFrancisco
+                6 - SanDiego
+                7 - LA
+            */
+            var cityList = new Dictionary<int, string>();
+            cityList.Add(0, "NewYork");
+            cityList.Add(1, "Chicago");
+            cityList.Add(2, "Miami");
+            cityList.Add(3, "Dallas");
+            cityList.Add(4, "Denver");
+            cityList.Add(5, "SanFrancisco");
+            cityList.Add(6, "SanDiego");
+            cityList.Add(7, "LA");
 
-            var allEdges = graph.GetAllEdges();
-            foreach (var edge in allEdges)
+            var graph = new EdgeWeightedDirectedGraph(cityList.Count);
+            //from, to, fare
+            graph.AddEdge(new DirectedEdge(0, 1, 75));
+            graph.AddEdge(new DirectedEdge(0, 2, 90));
+            graph.AddEdge(new DirectedEdge(0, 3, 125));
+            graph.AddEdge(new DirectedEdge(0, 4, 100));
+            graph.AddEdge(new DirectedEdge(1, 4, 20));
+            graph.AddEdge(new DirectedEdge(1, 5, 25));
+            graph.AddEdge(new DirectedEdge(2, 3, 50));
+            graph.AddEdge(new DirectedEdge(3, 6, 90));
+            graph.AddEdge(new DirectedEdge(3, 7, 80));
+            graph.AddEdge(new DirectedEdge(4, 5, 75));
+            graph.AddEdge(new DirectedEdge(4, 7, 100));
+            graph.AddEdge(new DirectedEdge(5, 7, 45));
+            graph.AddEdge(new DirectedEdge(6, 7, 45));
+                        
+            var distanceTable = new Dictionary<int, double>();
+            foreach (var city in cityList)
             {
-                Console.WriteLine(edge.ToString());
+                distanceTable[city.Key] = Int32.MaxValue;
             }
+
+            var routeTable = new Dictionary<int, int?>();
+            foreach (var city in cityList)
+            {
+                routeTable[city.Key] = null;
+            }
+
+            distanceTable[0] = 0;//initialize with 0 for starting City
+            foreach (var city in cityList)
+            {
+                var edgeList = graph.GetAdjacencyList(city.Key);
+                foreach (var edge in edgeList)
+                {
+                    if (distanceTable[city.Key] + edge.Weight() < distanceTable[edge.To()])
+                    {
+                        distanceTable[edge.To()] = distanceTable[city.Key] + edge.Weight();
+                        routeTable[edge.To()] = city.Key;
+                    }
+                }
+            }
+
+            //Destination
+            int destinationCity = 7;
+            int? route = routeTable[destinationCity];
+            string routePath = string.Empty;
+
+            while (route != null)
+            {
+                routePath = "-->" + cityList[destinationCity] + routePath;
+                destinationCity = route.Value;
+                route = routeTable[destinationCity];
+                if (route == null)
+                {
+                    routePath = cityList[destinationCity] + routePath;
+                    break;
+                }
+            }
+
+            Console.WriteLine("*** Cheapest Fare ***");
+            Console.WriteLine(routePath);
+            //var allEdges = graph.GetAllEdges();
+            //foreach (var edge in allEdges)
+            //{
+            //    Console.WriteLine(edge.ToString());
+            //}
 
             #endregion
 
