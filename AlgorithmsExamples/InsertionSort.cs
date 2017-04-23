@@ -10,20 +10,32 @@ namespace AlgorithmsExamples
     {
         public void Sort(int[] numbers)
         {
-            for (int i = 1; i < numbers.Length; i++)
+            //4  3  2  1
+            //3  4  2  1
+            //3  3  4  1
+            //2  3  4  1
+            int holePosition;
+            int valueToInsert;
+
+            if(numbers.Length > 1)
             {
-                int j = i;
-                while (j > 0)
+                for(int i = 1; i < numbers.Length; i++)
                 {
-                    if (numbers[j - 1] > numbers[j])
+                    /* select value to be inserted */
+                    valueToInsert = numbers[i];
+                    holePosition = i;
+      
+                    /*locate hole position for the element to be inserted */
+		
+                    while(holePosition > 0 && numbers[holePosition-1] > valueToInsert)
                     {
-                        int temp = numbers[j - 1];
-                        numbers[j - 1] = numbers[j];
-                        numbers[j] = temp;
-                        j--;
+                        numbers[holePosition] = numbers[holePosition - 1];
+                        holePosition = holePosition -1;
                     }
-                    else
-                        break;
+                       
+                    /* insert the number at hole position */
+                    numbers[holePosition] = valueToInsert;
+
                 }
             }
         }
