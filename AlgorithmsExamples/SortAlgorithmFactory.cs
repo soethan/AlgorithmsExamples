@@ -16,6 +16,8 @@ namespace AlgorithmsExamples
                     return new QuickSort();
                 case AlgorithmType.MergeSort:
                     return new MergeSort();
+                case AlgorithmType.MergeSortWithLinkedList:
+                    return new MergeSortWithLinkedList();
                 case AlgorithmType.InsertionSort:
                     return new InsertionSort();
                 case AlgorithmType.BubbleSort:

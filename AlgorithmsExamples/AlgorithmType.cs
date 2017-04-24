@@ -10,6 +10,7 @@ namespace AlgorithmsExamples
     {
         QuickSort,
         MergeSort,
+        MergeSortWithLinkedList,
         BubbleSort,
         InsertionSort,
         HeapSort
