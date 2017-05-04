@@ -8,8 +8,29 @@ namespace AlgorithmsExamples
 {
     class Program
     {
+        public static decimal RoundDown(decimal i, double decimalPlaces = 2)
+        {
+            decimal power = (decimal)Math.Pow(10, decimalPlaces);
+            return Math.Floor(i * power) / power;
+        }
+
         static void Main(string[] args)
         {
+            decimal result = RoundDown(100.78999m);
+            Console.WriteLine(string.Format("{0}", result));
+
+            #region Searching
+
+            int[] sortedNumbers = new int[] { 10, 13, 14, 15, 19, 55, 56 };
+            var searchAlgorithm = new BinarySearch();
+            var index = searchAlgorithm.Search(sortedNumbers, 55);
+            if(index < 0)
+                Console.WriteLine("Not found");
+            else
+                Console.WriteLine(string.Format("Found at {0}", index));
+
+            #endregion
+
             #region Sorting
 
             Console.Write("\n************ Sorting ************");
