@@ -19,6 +19,14 @@ namespace AlgorithmsExamples
             decimal result = RoundDown(100.78999m);
             Console.WriteLine(string.Format("{0}", result));
 
+            var pointCal = new PointInsideRectangleCalculator(
+                new Point(1, 4), new Point(5, 4), new Point(5, 1), new Point(1, 1)
+            );
+
+            Console.WriteLine(pointCal.IsWithinRectangle(new Point(2, 0.5)));
+            Console.WriteLine(pointCal.IsWithinRectangle(new Point(2, 1)));
+            Console.WriteLine(pointCal.IsWithinRectangle(new Point(2, 1.5)));
+
             #region Searching
 
             int[] sortedNumbers = new int[] { 10, 13, 14, 15, 19, 55, 56 };
