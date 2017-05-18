@@ -37,7 +37,7 @@ namespace AlgorithmsExamples
                         swapped = true;
                     }
                 }
-            } while (swapped != false);
+            } while (swapped);
         }
     }
 }
