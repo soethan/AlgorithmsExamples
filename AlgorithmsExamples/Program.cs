@@ -27,6 +27,12 @@ namespace AlgorithmsExamples
             Console.WriteLine(pointCal.IsWithinRectangle(new Point(2, 1)));
             Console.WriteLine(pointCal.IsWithinRectangle(new Point(2, 1.5)));
 
+            Console.WriteLine(HashLib.GetHashedValue("Aaa"));
+            Console.WriteLine(HashLib.GetHashedValue("Aba"));
+            Console.WriteLine(HashLib.GetHashedValue("Bbb"));
+            Console.WriteLine(HashLib.GetHashedValue("Ccc"));
+            Console.WriteLine(HashLib.GetHashedValue("Cdc"));
+
             #region Searching
 
             int[] sortedNumbers = new int[] { 10, 13, 14, 15, 19, 55, 56 };
