@@ -33,6 +33,8 @@ namespace AlgorithmsExamples
             Console.WriteLine(HashLib.GetHashedValue("Ccc"));
             Console.WriteLine(HashLib.GetHashedValue("Cdc"));
 
+            Console.WriteLine(NumberDisplay.GetNumberText("1123456789"));
+
             #region Searching
 
             int[] sortedNumbers = new int[] { 10, 13, 14, 15, 19, 55, 56 };
