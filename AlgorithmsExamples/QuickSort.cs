@@ -39,16 +39,15 @@ namespace AlgorithmsExamples
 
         public void Sort(int[] arr, int left, int right)
         {
-            // For Recursion  
-            if (left < right)
+            if (right - left <= 0)
+            {
+                return;
+            }
+            else
             {
                 int pivotIndex = Partition(arr, left, right);
-
-                if (pivotIndex > 1)
-                    Sort(arr, left, pivotIndex - 1);
-
-                if (pivotIndex + 1 < right)
-                    Sort(arr, pivotIndex + 1, right);
+                Sort(arr, left, pivotIndex - 1);
+                Sort(arr, pivotIndex + 1, right);
             }
         }
 
