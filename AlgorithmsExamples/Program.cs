@@ -65,7 +65,35 @@ namespace AlgorithmsExamples
             {
                 Console.WriteLine(ex.Message);
             }
-            
+
+            try
+            {
+                var stack = new Stack();
+                stack.Push("1");
+                stack.Push("2");
+                stack.Push("3");
+                stack.Push("4");
+                stack.Push("5");
+                stack.Display();
+                stack.Pop();
+                stack.Pop();
+                stack.Pop();
+                stack.Display();
+                stack.Push("3");
+                stack.Push("4");
+                stack.Push("5");
+                stack.Display();
+                stack.Pop();
+                stack.Pop();
+                stack.Pop();
+                stack.Pop();
+                stack.Pop();
+                stack.Pop();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
 
             #region Searching
 
