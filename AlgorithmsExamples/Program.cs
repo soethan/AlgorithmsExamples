@@ -39,6 +39,34 @@ namespace AlgorithmsExamples
             Console.WriteLine(NumberDisplay.GetNumberText("1001123456789"));
             Console.WriteLine(NumberDisplay.GetNumberText("1000123456789"));
 
+            try
+            {
+                var queue = new Queue();
+                queue.Enqueue("1");
+                queue.Enqueue("2");
+                queue.Enqueue("3");
+                queue.Enqueue("4");
+                queue.Enqueue("5");
+                queue.Dequeue();
+                queue.Dequeue();
+                queue.Dequeue();
+                queue.Dequeue();
+                queue.Enqueue("6");
+                queue.Enqueue("7");
+                queue.Enqueue("8");
+                queue.Dequeue();
+                queue.Dequeue();
+                queue.Dequeue();
+                queue.Dequeue();
+                queue.Dequeue();
+                queue.Display();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            
+
             #region Searching
 
             int[] sortedNumbers = new int[] { 10, 13, 14, 15, 19, 55, 56 };
@@ -76,11 +104,11 @@ namespace AlgorithmsExamples
 
             Console.WriteLine("After Sorting:");
 
-            var sortAlgorithm = SortAlgorithmFactory.GetSortingAlgorithm(AlgorithmType.QuickSort);
+            //var sortAlgorithm = SortAlgorithmFactory.GetSortingAlgorithm(AlgorithmType.QuickSort);
             //var sortAlgorithm = SortAlgorithmFactory.GetSortingAlgorithm(AlgorithmType.BubbleSort);
             //var sortAlgorithm = SortAlgorithmFactory.GetSortingAlgorithm(AlgorithmType.InsertionSort);
             //var sortAlgorithm = SortAlgorithmFactory.GetSortingAlgorithm(AlgorithmType.MergeSort);
-            //var sortAlgorithm = SortAlgorithmFactory.GetSortingAlgorithm(AlgorithmType.MergeSortWithLinkedList);
+            var sortAlgorithm = SortAlgorithmFactory.GetSortingAlgorithm(AlgorithmType.MergeSortWithLinkedList);
             //var sortAlgorithm = SortAlgorithmFactory.GetSortingAlgorithm(AlgorithmType.HeapSort);
             sortAlgorithm.Sort(numbers);
 
