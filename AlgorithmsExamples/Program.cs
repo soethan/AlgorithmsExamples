@@ -34,6 +34,10 @@ namespace AlgorithmsExamples
             Console.WriteLine(HashLib.GetHashedValue("Cdc"));
 
             Console.WriteLine(NumberDisplay.GetNumberText("1123456789"));
+            Console.WriteLine(NumberDisplay.GetNumberText("12456789"));
+            Console.WriteLine(NumberDisplay.GetNumberText("1456789"));
+            Console.WriteLine(NumberDisplay.GetNumberText("1001123456789"));
+            Console.WriteLine(NumberDisplay.GetNumberText("1000123456789"));
 
             #region Searching
 
