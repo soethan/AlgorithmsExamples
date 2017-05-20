@@ -19,6 +19,8 @@ namespace AlgorithmsExamples
             decimal result = RoundDown(100.78999m);
             Console.WriteLine(string.Format("{0}", result));
 
+            #region Point inside Rectangle
+
             var pointCal = new PointInsideRectangleCalculator(
                 new Point(1, 4), new Point(5, 4), new Point(5, 1), new Point(1, 1)
             );
@@ -27,17 +29,29 @@ namespace AlgorithmsExamples
             Console.WriteLine(pointCal.IsWithinRectangle(new Point(2, 1)));
             Console.WriteLine(pointCal.IsWithinRectangle(new Point(2, 1.5)));
 
+            #endregion
+
+            #region Hash Dummy
+
             Console.WriteLine(HashLib.GetHashedValue("Aaa"));
             Console.WriteLine(HashLib.GetHashedValue("Aba"));
             Console.WriteLine(HashLib.GetHashedValue("Bbb"));
             Console.WriteLine(HashLib.GetHashedValue("Ccc"));
             Console.WriteLine(HashLib.GetHashedValue("Cdc"));
 
+            #endregion
+
+            #region Number Translation
+
             Console.WriteLine(NumberDisplay.GetNumberText("1123456789"));
             Console.WriteLine(NumberDisplay.GetNumberText("12456789"));
             Console.WriteLine(NumberDisplay.GetNumberText("1456789"));
             Console.WriteLine(NumberDisplay.GetNumberText("1001123456789"));
             Console.WriteLine(NumberDisplay.GetNumberText("1000123456789"));
+
+            #endregion
+
+            #region Queue and Stack
 
             try
             {
@@ -94,6 +108,8 @@ namespace AlgorithmsExamples
             {
                 Console.WriteLine(ex.Message);
             }
+
+            #endregion
 
             #region Searching
 
