@@ -45,6 +45,7 @@
     <Compile Include="BubbleSort.cs" />
     <Compile Include="DataStructure\Queue.cs" />
     <Compile Include="DataStructure\Stack.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Graph.cs" />
     <Compile Include="HeapSort.cs" />
     <Compile Include="InsertionSort.cs" />

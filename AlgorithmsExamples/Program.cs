@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using AlgorithmsExamples.Extensions;
 
 namespace AlgorithmsExamples
 {
@@ -15,6 +16,9 @@ namespace AlgorithmsExamples
 
         static void Main(string[] args)
         {
+            string myStr = "123456";
+            Console.WriteLine(myStr.GetFirst3Letters());
+
             decimal result = RoundDown(100.78999m);
             Console.WriteLine(string.Format("{0}", result));
 
