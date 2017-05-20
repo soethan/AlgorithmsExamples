@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="AlgorithmType.cs" />
     <Compile Include="BubbleSort.cs" />
+    <Compile Include="DataStructure\BinarySearchTree.cs" />
     <Compile Include="DataStructure\Queue.cs" />
     <Compile Include="DataStructure\Stack.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using AlgorithmsExamples.Extensions;
+using System.Diagnostics;
 
 namespace AlgorithmsExamples
 {
@@ -22,10 +23,57 @@ namespace AlgorithmsExamples
             decimal result = RoundDown(100.78999m);
             Console.WriteLine(string.Format("{0}", result));
 
+            #region Binary Search Tree
+
+            TreeNode root = null;
+            BinarySearchTree bst = new BinarySearchTree();
+
+            int[] a = new int[5]{6, 4, 9, 3, 1};
+                        
+            Stopwatch watch = Stopwatch.StartNew();
+
+            for (int i = 0; i < a.Length; i++)
+            {
+                Console.Write(a[i] + ",");
+            }
+
+            watch.Stop();
+            
+            Console.WriteLine("Done. Took {0} seconds", (double)watch.ElapsedMilliseconds / 1000.0);
+            Console.WriteLine();
+            Console.WriteLine("Filling the tree with {0} nodes...", a.Length);
+
+            watch = Stopwatch.StartNew();
+
+            for (int i = 0; i < a.Length; i++)
+            {
+                root = bst.Insert(root, a[i]);
+            }
+
+            watch.Stop();
+            
+            Console.WriteLine("Done. Took {0} seconds", (double)watch.ElapsedMilliseconds / 1000.0);
+            Console.WriteLine();
+            Console.WriteLine("Traversing all {0} nodes in tree...", a.Length);
+
+            watch = Stopwatch.StartNew();
+
+            bst.Traverse(root);
+
+            watch.Stop();
+
+            Console.WriteLine("\nDone. Took {0} seconds", (double)watch.ElapsedMilliseconds / 1000.0);
+
+            Console.WriteLine("Contains 3 = " + bst.Contains(root, 3));
+            Console.WriteLine("Contains 11 = " + bst.Contains(root, 11));
+            Console.WriteLine();
+
+            #endregion
+
             #region Tasks
 
-            ThreadingSamples.ThreadingWithTask();
-            ThreadingSamples.ThreadingWithParallel();
+            //ThreadingSamples.ThreadingWithTask();
+            //ThreadingSamples.ThreadingWithParallel();
 
             #endregion
 
