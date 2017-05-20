@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace AlgorithmsExamples
 {
@@ -18,6 +17,13 @@ namespace AlgorithmsExamples
         {
             decimal result = RoundDown(100.78999m);
             Console.WriteLine(string.Format("{0}", result));
+
+            #region Tasks
+
+            ThreadingSamples.ThreadingWithTask();
+            ThreadingSamples.ThreadingWithParallel();
+
+            #endregion
 
             #region Point inside Rectangle
 
