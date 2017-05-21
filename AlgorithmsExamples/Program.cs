@@ -28,8 +28,9 @@ namespace AlgorithmsExamples
             TreeNode root = null;
             BinarySearchTree bst = new BinarySearchTree();
 
-            int[] a = new int[5]{6, 4, 9, 3, 1};
-                        
+            //int[] a = new int[8]{10, 9, 12, 11, 16, 14, 20, 15};
+            int[] a = new int[7] { 10, 9, 12, 11, 16, 20, 21 };
+
             Stopwatch watch = Stopwatch.StartNew();
 
             for (int i = 0; i < a.Length; i++)
@@ -54,18 +55,34 @@ namespace AlgorithmsExamples
             
             Console.WriteLine("Done. Took {0} seconds", (double)watch.ElapsedMilliseconds / 1000.0);
             Console.WriteLine();
-            Console.WriteLine("Traversing all {0} nodes in tree...", a.Length);
+
+            ///////////////////////////////////////////////////////////////////
+            Console.WriteLine("\nTraversing all {0} nodes in tree...", a.Length);
 
             watch = Stopwatch.StartNew();
 
             bst.Traverse(root);
 
             watch.Stop();
+            ///////////////////////////////////////////////////////////////////
+
+            bst.Delete(12);
+            ///////////////////////////////////////////////////////////////////
+            Console.WriteLine("\nTraversing all {0} nodes AFTER DELETE in tree...", a.Length);
+
+            watch = Stopwatch.StartNew();
+
+            bst.Traverse(root);
+
+            watch.Stop();
+            ///////////////////////////////////////////////////////////////////
 
             Console.WriteLine("\nDone. Took {0} seconds", (double)watch.ElapsedMilliseconds / 1000.0);
 
             Console.WriteLine("Contains 3 = " + bst.Contains(root, 3));
             Console.WriteLine("Contains 11 = " + bst.Contains(root, 11));
+
+
             Console.WriteLine();
 
             #endregion
