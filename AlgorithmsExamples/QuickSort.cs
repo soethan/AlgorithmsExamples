@@ -6,6 +6,17 @@ using System.Threading.Tasks;
 
 namespace AlgorithmsExamples
 {
+    /// <summary>
+    /// Time Complexity
+    /// ======================
+    /// Best Case   : O(n log n)
+    /// Average Case: O(n log n)
+    /// Worst Case  : O(n ^ 2)
+    /// 
+    /// Space Complexity
+    /// ======================
+    /// Worst Case  : O(log n)
+    /// </summary>
     public class QuickSort : ISort
     {
         //6  5  9  12  3
