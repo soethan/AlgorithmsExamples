@@ -91,6 +91,7 @@ namespace AlgorithmsExamples
 
             //ThreadingSamples.ThreadingWithTask();
             //ThreadingSamples.ThreadingWithParallel();
+            DeadLock.ExecuteDeadlockAvoidance();
 
             #endregion
 
