@@ -16,6 +16,7 @@ namespace AlgorithmsExamples
     /// Space Complexity
     /// ======================
     /// Worst Case  : O(log n)
+    /// at each recursive call a new stack frame of constant size must be allocated. Hence the O(log(n)) space complexity.
     /// </summary>
     public class QuickSort : ISort
     {
