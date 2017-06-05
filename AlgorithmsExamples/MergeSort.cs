@@ -6,11 +6,23 @@ using System.Threading.Tasks;
 
 namespace AlgorithmsExamples
 {
+    /// <summary>
+    /// Time Complexity
+    /// ======================
+    /// Best Case   : O(n log n)
+    /// Average Case: O(n log n)
+    /// Worst Case  : O(n log n)
+    /// 
+    /// Space Complexity
+    /// ======================
+    /// Worst Case  : O(n)
+    /// </summary>
     public class MergeSort : ISort
     {
+        private int[] temp;
+         
         public void Merge(int[] array, int left, int mid, int right)
         {
-            int[] temp = new int[array.Length];
             int tempArrayIndex = left;
             int i = left;
             int j = mid;
@@ -56,6 +68,7 @@ namespace AlgorithmsExamples
 
         public void Sort(int[] numbers)
         {
+            temp = numbers.Length > 0 ? new int[numbers.Length] : null;
             Sort(numbers, 0, numbers.Length - 1);
         }
     }
