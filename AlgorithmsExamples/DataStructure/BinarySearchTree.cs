@@ -131,12 +131,13 @@ namespace AlgorithmsExamples
             // First find the node to delete and its parent
             TreeNode nodeToDelete = FindParent(key, ref parent);
             if (nodeToDelete == null)
-                throw new Exception("Unable to delete node: " + key.ToString());  // can't find node, then say so 
+                throw new Exception("Unable to delete node: " + key.ToString());
 
             // Three cases to consider, leaf, one child, two children
 
-            // 1) If it is a simple leaf then just null what the parent is pointing to
-            if ((nodeToDelete.Left == null) && (nodeToDelete.Right == null))
+            #region 1) If it is a simple leaf then just null what the parent is pointing to
+
+            if (nodeToDelete.Left == null && nodeToDelete.Right == null)
             {
                 if (parent == null)
                 {
@@ -154,7 +155,10 @@ namespace AlgorithmsExamples
                 return;
             }
 
-            // 2). One of the children is null, in this case delete the node and move child up
+            #endregion
+            
+            #region 2). One of the children is null, in this case delete the node and move child up
+
             if (nodeToDelete.Left == null)
             {
                 // Special case if we're at the root
@@ -165,7 +169,7 @@ namespace AlgorithmsExamples
                 }
 
                 // Identify the child and point the parent at the child
-                if (parent.Right == nodeToDelete)//if (parent.left == nodeToDelete)
+                if (parent.Right == nodeToDelete)
                     parent.Right = nodeToDelete.Right;
                 else
                     parent.Left = nodeToDelete.Right;
@@ -174,7 +178,6 @@ namespace AlgorithmsExamples
                 return;
             }
 
-            // One of the children is null, in this case delete the node and move child up
             if (nodeToDelete.Right == null)
             {
                 // Special case if we're at the root			
@@ -194,9 +197,10 @@ namespace AlgorithmsExamples
                 return;
             }
 
-            // 3). Both children have nodes, therefore find the successor, 
-            // replace deleted node with successor and remove successor
-            // The parent argument becomes the parent of the successor
+            #endregion
+
+            #region 3). Both children have nodes, therefore find the successor, replace deleted node with successor and remove successor. The parent argument becomes the parent of the successor
+
             TreeNode successor = FindSuccessor(nodeToDelete, ref parent);
             // Make a copy of the successor node
             TreeNode tmp = new TreeNode();
@@ -221,6 +225,8 @@ namespace AlgorithmsExamples
             // Copy over the successor values to the deleted node position
             nodeToDelete.Value = tmp.Value;
             _count--;
+
+            #endregion
         }
     }
 
