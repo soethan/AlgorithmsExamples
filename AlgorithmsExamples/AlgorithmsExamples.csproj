@@ -62,6 +62,7 @@
     <Compile Include="Search\BinarySearch.cs" />
     <Compile Include="Search\ISearch.cs" />
     <Compile Include="SortAlgorithmFactory.cs" />
+    <Compile Include="Threading\AutoManualResetEventSample.cs" />
     <Compile Include="Threading\DeadLock.cs" />
     <Compile Include="Threading\ThreadingSamples.cs" />
   </ItemGroup>
