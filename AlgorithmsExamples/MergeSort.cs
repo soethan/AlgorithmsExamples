@@ -21,41 +21,41 @@ namespace AlgorithmsExamples
     {
         private int[] temp;
          
-        public void Merge(int[] array, int left, int mid, int right)
+        private void Merge(int[] numbers, int left, int mid, int right)
         {
-            int tempArrayIndex = left;
+            int tempIndex = left;
             int i = left;
             int j = mid;
 
             while (i < mid && j <= right)
             {
-                if (array[i] <= array[j])
+                if (numbers[i] <= numbers[j])
                 {
-                    temp[tempArrayIndex++] = array[i++];
+                    temp[tempIndex++] = numbers[i++];
                 }
                 else
                 {
-                    temp[tempArrayIndex++] = array[j++];
+                    temp[tempIndex++] = numbers[j++];
                 }
             }
 
             while (i < mid)
             {
-                temp[tempArrayIndex++] = array[i++];
+                temp[tempIndex++] = numbers[i++];
             }
 
             while (j <= right)
             {
-                temp[tempArrayIndex++] = array[j++];
+                temp[tempIndex++] = numbers[j++];
             }
 
             for (int k = left; k <= right; k++)
             {
-                array[k] = temp[k];
+                numbers[k] = temp[k];
             }   
         }
 
-        public void Sort(int[] numbers, int left, int right)
+        private void Sort(int[] numbers, int left, int right)
         {
             if (right > left)
             {

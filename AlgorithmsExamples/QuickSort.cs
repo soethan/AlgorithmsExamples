@@ -25,7 +25,7 @@ namespace AlgorithmsExamples
         //3  5  6  12  9 (pivot index is 2)
         //values on the left are always less than pivot value while values on the right are always greater than pivot value.
 
-        public int Partition(int[] numbers, int left, int right)
+        private int Partition(int[] numbers, int left, int right)
         {
             int pivot = numbers[left];
             while (true)
@@ -49,17 +49,17 @@ namespace AlgorithmsExamples
             }
         }
 
-        public void Sort(int[] arr, int left, int right)
+        private void Sort(int[] arr, int left, int right)
         {
-            if (right <= left)
-            {
-                return;
-            }
-            else
+            if (right > left)
             {
                 int pivotIndex = Partition(arr, left, right);
                 Sort(arr, left, pivotIndex - 1);
                 Sort(arr, pivotIndex + 1, right);
+            }
+            else
+            {
+                return;
             }
         }
 
