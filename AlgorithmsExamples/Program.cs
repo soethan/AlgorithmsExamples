@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using AlgorithmsExamples.Extensions;
 using System.Diagnostics;
+using System.ComponentModel;
 
 namespace AlgorithmsExamples
 {
@@ -92,7 +93,7 @@ namespace AlgorithmsExamples
             //ThreadingSamples.ThreadingWithTask();
             //ThreadingSamples.ThreadingWithParallel();
             //DeadLock.ExecuteDeadlockAvoidance();
-            AutoManualResetEventSample.Init();
+            //AutoManualResetEventSample.Init();
 
             #endregion
 
@@ -220,21 +221,22 @@ namespace AlgorithmsExamples
             for (int k = 0; k < totalElements; k++)
             {
                 Console.Write(numbers[k] + " ");
-                Console.Write("\n");
             }
+            Console.Write("\n");
 
             Console.WriteLine("After Sorting:");
 
             //var sortAlgorithm = SortAlgorithmFactory.GetSortingAlgorithm(AlgorithmType.QuickSort);
             //var sortAlgorithm = SortAlgorithmFactory.GetSortingAlgorithm(AlgorithmType.BubbleSort);
             //var sortAlgorithm = SortAlgorithmFactory.GetSortingAlgorithm(AlgorithmType.InsertionSort);
-            var sortAlgorithm = SortAlgorithmFactory.GetSortingAlgorithm(AlgorithmType.MergeSort);
+            //var sortAlgorithm = SortAlgorithmFactory.GetSortingAlgorithm(AlgorithmType.MergeSort);
             //var sortAlgorithm = SortAlgorithmFactory.GetSortingAlgorithm(AlgorithmType.MergeSortWithLinkedList);
-            //var sortAlgorithm = SortAlgorithmFactory.GetSortingAlgorithm(AlgorithmType.HeapSort);
+            var sortAlgorithm = SortAlgorithmFactory.GetSortingAlgorithm(AlgorithmType.HeapSort);
             sortAlgorithm.Sort(numbers);
 
             for (int i = 0; i < totalElements; i++)
-                Console.WriteLine(numbers[i]);
+                Console.Write(numbers[i] + " ");
+            Console.Write("\n");
 
             #endregion
 
@@ -329,7 +331,19 @@ namespace AlgorithmsExamples
 
             #endregion
 
+            BasePayType basePaymentType = BasePayType.Visa;
+            Console.WriteLine(basePaymentType.ToString());
+
             Console.ReadLine();
         }
+    }
+
+    [Flags]
+    public enum BasePayType
+    {
+        [Description("Online")]
+        Paypal = 1,
+        [Description("WeChat")]
+        Visa = 2,
     }
 }

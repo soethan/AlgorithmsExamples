@@ -6,48 +6,74 @@ using System.Threading.Tasks;
 
 namespace AlgorithmsExamples
 {
+    /// <summary>
+    /// https://www.youtube.com/watch?v=MtQL_ll5KhQ
+    /// </summary>
     public class HeapSort : ISort
     {
         public void Sort(int[] numbers)
         {
-            int heapSize = numbers.Length;
+            BuildHeap(numbers);
 
-            for (int p = (heapSize - 1) / 2; p >= 0; --p)
-                MaxHeapify(ref numbers, heapSize, p);
-
-            for (int i = numbers.Length - 1; i > 0; --i)
+            for (int i = numbers.Length - 1; i > 0; i--)
             {
-                int temp = numbers[i];
-                numbers[i] = numbers[0];
-                numbers[0] = temp;
-
-                --heapSize;
-                MaxHeapify(ref numbers, heapSize, 0);
+                //Max value is at the root(index=0)
+                SwapValues(numbers, 0, i);
+                //The next Heapify will only need arrayLength - 1
+                int size = i;
+                Heapify(numbers, size, 0);
             }
         }
 
-        private void MaxHeapify(ref int[] data, int heapSize, int index)
+        private void BuildHeap(int[] numbers)
         {
-            int left = (index + 1) * 2 - 1;
-            int right = (index + 1) * 2;
-            int largest = 0;
+            int size = numbers.Length;
 
-            if (left < heapSize && data[left] > data[index])
-                largest = left;
-            else
-                largest = index;
-
-            if (right < heapSize && data[right] > data[largest])
-                largest = right;
-
-            if (largest != index)
+            for (int i = size / 2; i >= 0; i--)
             {
-                int temp = data[index];
-                data[index] = data[largest];
-                data[largest] = temp;
-
-                MaxHeapify(ref data, heapSize, largest);
+                Heapify(numbers, size, i);
             }
+        }
+
+        private void Heapify(int[] numbers, int size, int index)
+        {
+            int value = numbers[index];
+
+            while (index < size)
+            {
+                int childPos = index * 2 + 1;
+
+                if (childPos < size)
+                {
+                    if (childPos + 1 < size && numbers[childPos + 1] > numbers[childPos])
+                    {
+                        childPos++;
+                    }
+
+                    if (value > numbers[childPos])
+                    {
+                        numbers[index] = value;
+                        return;
+                    }
+                    else
+                    {
+                        numbers[index] = numbers[childPos];
+                        index = childPos;
+                    }
+                }
+                else
+                {
+                    numbers[index] = value;
+                    return;
+                }
+            }
+        }
+
+        private void SwapValues(int[] a, int i, int j)
+        {
+            int temp = a[i];
+            a[i] = a[j];
+            a[j] = temp;
         }
     }
 }
