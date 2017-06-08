@@ -4,41 +4,44 @@ using System.Linq;
 
 namespace AlgorithmsExamples
 {
+    /// <summary>
+    /// Precondition: array is sorted
+    /// </summary>
     public class BinarySearch : ISearch
     {
         public int Search(int[] sortedNumbers, int searchNumber)
         {
-            int returnIndex = -1;
-            int lowerIndex = 0;
-            int upperIndex = sortedNumbers.Length - 1;
+            int foundAt = -1;
+            int lower = 0;
+            int upper = sortedNumbers.Length - 1;
 
             while (true)
             {
-                if (upperIndex < lowerIndex)
+                if (upper < lower)
                 {
                     break;
                 }
 
-                int midIndex = lowerIndex + (upperIndex - lowerIndex) / 2;
+                int mid = lower + (upper - lower) / 2;
 
-                if (searchNumber > sortedNumbers[midIndex])
+                if (searchNumber > sortedNumbers[mid])
                 {
-                    lowerIndex = midIndex + 1;
+                    lower = mid + 1;
                 }
 
-                if (searchNumber < sortedNumbers[midIndex])
+                if (searchNumber < sortedNumbers[mid])
                 {
-                    upperIndex = midIndex - 1;
+                    upper = mid - 1;
                 }
 
-                if (searchNumber == sortedNumbers[midIndex])
+                if (searchNumber == sortedNumbers[mid])
                 {
-                    returnIndex = midIndex;
+                    foundAt = mid;
                     break;
                 }
             }
 
-            return returnIndex;
+            return foundAt;
         }
     }
 }
