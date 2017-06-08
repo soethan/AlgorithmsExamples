@@ -51,7 +51,7 @@ namespace AlgorithmsExamples
 
         public void Sort(int[] arr, int left, int right)
         {
-            if (right - left <= 0)
+            if (right <= left)
             {
                 return;
             }
