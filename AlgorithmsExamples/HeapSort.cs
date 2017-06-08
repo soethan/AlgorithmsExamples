@@ -20,8 +20,7 @@ namespace AlgorithmsExamples
                 //Max value is at the root(index=0)
                 SwapValues(numbers, 0, i);
                 //The next Heapify will only need arrayLength - 1
-                int size = i;
-                Heapify(numbers, size, 0);
+                Heapify(numbers, i, 0);
             }
         }
 
