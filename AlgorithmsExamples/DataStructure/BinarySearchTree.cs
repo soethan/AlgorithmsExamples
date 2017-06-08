@@ -204,8 +204,8 @@ namespace AlgorithmsExamples
             TreeNode successor = FindSuccessor(nodeToDelete, ref parent);
             // Make a copy of the successor node
             TreeNode tmp = new TreeNode();
-            // Find out which side the successor parent is pointing to the
             tmp.Value = successor.Value;
+            // Find out which side the successor parent is pointing to the
             // successor and remove the successor
             if (parent.Left == successor)
             {
