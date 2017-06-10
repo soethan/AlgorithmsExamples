@@ -8,6 +8,7 @@ namespace AlgorithmsExamples
 {
     /*
     https://www.tutorialspoint.com/data_structures_algorithms/insertion_sort_algorithm.htm
+    https://www.youtube.com/watch?v=UUswQbT6xQc
     Step 1 − If it is the first element, it is already sorted. return 1;
     Step 2 − Pick next element
     Step 3 − Compare with all elements in the sorted sub-list
