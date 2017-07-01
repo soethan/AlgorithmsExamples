@@ -22,8 +22,10 @@ namespace AlgorithmsExamples
         {
             new Thread(SomeMethod).Start();//invoke SomeMethod in a different thread
 
+            Console.WriteLine("Before first Set");
             Console.ReadLine();
             //signal to start again
+            Console.WriteLine("Before second Set");
             objSync.Set(); //WaitOne at 1
 
             Console.ReadLine();
