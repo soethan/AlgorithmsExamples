@@ -12,7 +12,7 @@ namespace AlgorithmsExamples
     /// http://www.c-sharpcorner.com/UploadFile/ff0d0f/autoresetevent-and-manualresetevent-in-C-Sharp/
     /// When we use "AutoResetEvent" for every WaitOne, we need a "Set" to revoke. 
     /// In ManualResetEvent, once we call the "Set", all "WaitOne" will execute until we call "Close".
-    /// In ManualResetEvent, 1 Set() method will revokes all the WaitOne() methods and this is the main difference between AutoResetEvent and ManualResetEvent.
+    /// In ManualResetEvent, 1 Set() method will revoke all the WaitOne() methods and this is the main difference between AutoResetEvent and ManualResetEvent.
     /// </summary>
     public class AutoManualResetEventSample
     {
