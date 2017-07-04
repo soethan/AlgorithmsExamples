@@ -8,10 +8,37 @@ using System.ComponentModel;
 
 namespace AlgorithmsExamples
 {
+    interface ITestInterface1
+    {
+        void Show();
+    }
+
+    interface ITestInterface2
+    {
+        void Show();
+    }
+
+    class Abc : ITestInterface1, ITestInterface2
+    {
+        void ITestInterface1.Show()
+        {
+            Console.WriteLine("For testInterface1 !!");
+        }
+        void ITestInterface2.Show()
+        {
+            Console.WriteLine("For testInterface2 !!");
+        }
+    }
+
     class Program
     {
         public static decimal RoundDown(decimal i, double decimalPlaces = 2)
         {
+            ITestInterface1 obj1 = new Abc();
+            ITestInterface2 obj2 = new Abc();
+            obj1.Show();
+            obj2.Show();
+
             decimal power = (decimal)Math.Pow(10, decimalPlaces);
             return Math.Floor(i * power) / power;
         }
